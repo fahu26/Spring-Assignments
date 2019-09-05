@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans.xsd">
+           
+<!-- Setter Injection starts -->
+<!-- 
+<bean id="customer" class="com.fahim.Customer">
+<property name="customerId" value="01" />
+<property name="customerName" value="Fahim" />
+<property name="customerContact" value="9876543210" />
+<property name="customerAddress" ref="address" />
+</bean>           
+           
+           
+<bean id="address" class="com.fahim.Address">
+<property name="street" value="Mannady" />
+<property name="city" value="Chennai" />
+<property name="state" value="TamilNadu" />
+<property name="zip" value="600001" />
+<property name="country" value="India" />
+</bean> -->
+<!-- ends -->
+
+<!-- Constructor Injection -->
+<bean id="customer" class="com.fahim.Customer">
+<constructor-arg value="01" />
+<constructor-arg value="Fahim" />
+<constructor-arg value="9876543210" />
+<constructor-arg ref="address" />
+</bean>           
+           
+           
+<bean id="address" class="com.fahim.Address">
+<constructor-arg value="Mannady" />
+<constructor-arg value="Chennai" />
+<constructor-arg value="TamilNadu" />
+<constructor-arg value="600001" />
+<constructor-arg value="India" />
+</bean>
+<!-- ends -->
+           </beans>
