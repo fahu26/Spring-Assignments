@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+	<bean id="question" class="com.fahim.Question">
+		<property name="questionId" value="01" />
+		<property name="question" value="WHat are you hobbies?" />
+		<property name="answers">
+		<list>
+		<value>Cricket</value>
+		<value>Cooking</value>
+		<value>football</value>
+		</list>
+		</property>
+	</bean>
+
+<bean id="question2" class="com.fahim.Question2">
+		<property name="questionId" value="11" />
+		<property name="question" value="WHat are you fav food" />
+		<property name="answers">
+		<set>
+		<value>Chicken</value>
+		<value>chinese</value>
+		<value>punjabi</value>
+		</set>
+		</property>
+	</bean>
+	
+	<bean id="question3" class="com.fahim.Question3">
+		<property name="questionId" value="21" />
+		<property name="question" value="WHat are you fav city" />
+		<property name="answers">
+		<map>
+		<entry key="1" value="Mumbai"></entry>
+		<entry key="2" value="Chennai"></entry>
+		<entry key="3" value="Sharjah"></entry>
+		</map>
+		</property>
+	</bean>
+
+</beans>
