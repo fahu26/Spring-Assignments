@@ -1,0 +1,61 @@
+create table employee(
+employee_id int(10), 
+employee_name varchar(50) not null,
+employee_hireDate Date,
+ employee_jobId varchar(50) not null,
+employee_salary double(20,2) not null, 
+employee_departmentId int(10) not null,
+primary key(employee_id),
+foreign key(employee_departmentId) references department(department_id)
+);
+
+
+insert into employee values(10,'Fahim','2015-11-05','J101',50000,01);
+insert into employee values(11,'Nausheen','2015-11-05','J110',45000,01);
+insert into employee values(12,'Shweta','2017-10-15','J001',55000,02);
+insert into employee values(13,'Pratibha','2013-07-07','J100',85000,03);
+insert into employee values(14,'Zeeba','2018-04-05','J111',40000,01);
+
+
+insert into department values(01,'Accounts',101);
+insert into department values(02,'Admin',102);
+insert into department values(03,'Sales',103);
+
+update department set department_name='Accounts' where department_id=1;
+update department set department_managerId='101' where department_id=1;
+update department set department_name='Admin' where department_id=2;
+update department set department_managerId=102 where department_id=2;
+update department set department_name='Sales' where department_id=3;
+update department set department_managerId=103 where department_id=3;
+update department set department_managerId=104 where department_id=4;
+
+
+Select e.employee_name,e.employee_jobId,e.employee_salary from employee e join department d on e.employee_departmentId= d.department_id
+where (d.department_name='accounts' or d.department_name='admin') and e.employee_salary between 50000 and 60000;
+
+select employee_name,max(employee_salary) from employee where employee_departmentId=2;
+
+Select e.employee_name,e.employee_id,d.department_managerId from employee e join department d on e.employee_departmentId= d.department_id;
+
+
+
+DROP PROCEDURE IF EXISTS display_employeeDetails //
+CREATE PROCEDURE display_employeeDetails
+(IN employee_id int(10),
+OUT out_empId int(10),
+OUT out_empName varchar(20),
+OUT out_empJobId varchar(20),
+OUT out_deptName varchar(10),
+OUT out_deptMgId int(10),
+OUT out_deptId int(10))
+  SELECT e.employee_id,e.employee_name,e.employee_jobId,d.department_name,d.department_managerId,d.department_id
+  INTO out_empId,out_empName,out_empJobId,out_deptName,out_deptMgId,out_deptId
+FROM 
+  employee e join department d
+  ON
+  e.employee_departmentId=d.department_id
+  where e.employee_id=employee_id;
+  //
+
+
+call display_employeeDetails(12,@out_empId,@out_empName,@out_empJobId,@out_deptName,@out_deptMgId);//
