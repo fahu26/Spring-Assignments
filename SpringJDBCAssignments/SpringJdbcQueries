@@ -59,3 +59,10 @@ FROM
 
 
 call display_employeeDetails(12,@out_empId,@out_empName,@out_empJobId,@out_deptName,@out_deptMgId);//
+
+
+
+create Function calculate_interest(principal double,tenure double, rate double) as SimpleInterest RETURNS int DETERMINISTIC
+return (principal * rate * tenure) / 100;
+end
+//
