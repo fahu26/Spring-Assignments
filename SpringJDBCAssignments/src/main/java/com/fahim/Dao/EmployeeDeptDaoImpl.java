@@ -101,6 +101,13 @@ public class EmployeeDeptDaoImpl {
 		return jdbcTemplate.update(sql);
 	}
 
+	//program to implement stored function
+	public int getSimpleInterest(double principal,double years,double rate) {
+		String sql="select calculate_interest("+principal+","+years+","+rate+")";
+		return jdbcTemplate.queryForInt(sql);
+	}
+	
+	
 	//program to implement stored procedure
 	public Employee getEmployeeDetailsFromStoredProcedure(int emp_id) {
 		SimpleJdbcCall jdbcCall = new SimpleJdbcCall(jdbcTemplate)

@@ -72,7 +72,12 @@ public class Test {
 		System.out.println("program to update salary of all employees by 5000 who are working in department 1");
 		System.out.println("updated-->"+daoImpl.UpdateSalaryOfEmployeeesBasedOnDepartmentId(5000,1));
 		
+		//program to implement stored function
+		System.out.println();
+		System.out.println("Simple Interest: "+daoImpl.getSimpleInterest(5000, 5, 20));
+		
 		//program to implement stored procedure
+		System.out.println();
 		System.out.println("stored procs--->");
 		Employee employee2 = daoImpl.getEmployeeDetailsFromStoredProcedure(11);
 		System.out.println("EmployeeId: "+employee2.getEmployeeId());
